@@ -1,8 +1,6 @@
 import os
 from functools import reduce
 
-from numpy import array
-
 directory_path = os.path.dirname(os.path.realpath(__file__))
 
 with open(f"{directory_path}/in.txt", "r") as file_in:
@@ -21,13 +19,3 @@ with open(f"{directory_path}/test.txt", "r") as file_test:
 assert raw_data_in and raw_data_out, "No IN data or no OUT data"
 assert len(raw_data_in) == len(
     raw_data_out), f"The amount of IN data ({len(raw_data_in)}) does not much the number of OUT data ({len(raw_data_out)})"
-
-# Export variables
-data_in = array(raw_data_in)
-data_out = array([raw_data_out]).T
-data_test = array(raw_data_test)
-
-print(f"Train cases: {len(data_in)}")
-if len(data_test):
-    print(f"Test cases:  {len(data_test)}")
-print()
