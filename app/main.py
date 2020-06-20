@@ -31,4 +31,9 @@ if __name__ == "__main__":
     for test_case in test_kit:
         predicted = neural_network.think(test_case)
         predicted_rounded = predicted.round()
-        print(f"Predicting new situation {test_case} -> ?: {predicted} ({predicted_rounded})")
+
+        # We had append [1] to each case of IN and TEST sets
+        # so we need to hide it in output print
+        test_case_print = test_case[:-1]
+
+        print(f"Predicting new situation {test_case_print} -> ?: {predicted} ({predicted_rounded})")

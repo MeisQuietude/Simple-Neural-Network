@@ -3,14 +3,18 @@ from numpy import exp, ndarray, random, dot
 
 class NeuralNetwork:
     def __init__(self):
+        self.amount_in = 4
+        self.amount_out = 1
+
         # Seed the random number generator, so it generates the same numbers
         # every time the program runs.
         random.seed(1)
 
         # We model a single neuron, with 4 input connections and 1 output connection.
-        # We assign random weights to a 4 x 1 matrix, with values in the range -1 to 1
+        # We assign random weights to a IN x OUT matrix, with values in the range -1 to 1
         # and mean 0.
-        self.synaptic_weights = 2 * random.random((4, 1)) - 1
+        # We add 1 to each IN to avoid multiplication by 0
+        self.synaptic_weights = 2 * random.random((self.amount_in + 1, self.amount_out)) - 1
 
     @staticmethod
     def __sigmoid(x: ndarray) -> ndarray:

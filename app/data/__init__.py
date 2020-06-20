@@ -1,4 +1,5 @@
 from numpy import array
+
 from ._parse import raw_data_in, raw_data_out, raw_data_test
 
 # Append 1 as additional parameter to avoid extra multiplication by 0
